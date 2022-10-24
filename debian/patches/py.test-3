@@ -1,0 +1,24 @@
+Description: Use the Debian package name for pytest
+Author: Michael R. Crusoe <crusoe@debian.org>
+Forwarded: not-needed
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- pytest-mpi.orig/tox.ini
++++ pytest-mpi/tox.ini
+@@ -7,7 +7,7 @@
+ envlist = py{35,36,37,38,39}-{mpi,}-{oldpt,},flake8,pylint,docs,check-manifest,checkreadme
+ 
+ [testenv]
+-commands = py.test -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
++commands = py.test-3 -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
+ deps =
+     pytest
+     pytest-cov
+@@ -26,6 +26,7 @@
+     docs: {env:TOXPYTHON:python3}
+     check-manifest: {env:TOXPYTHON:python3}
+     checkreadme: {env:TOXPYTHON:python3}
++allowlist_externals=py.test-3
+ 
+ [testenv:docs]
+ changedir=docs

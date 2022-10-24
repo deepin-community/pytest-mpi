@@ -1,0 +1,50 @@
+Source: pytest-mpi
+Section: python
+Priority: optional
+Maintainer: Debian Python Team <team+python@tracker.debian.org>
+Uploaders: Drew Parsons <dparsons@debian.org>
+Build-Depends: debhelper-compat (= 13),
+ dh-python,
+ python3-setuptools,
+ python3-all:any,
+ python3-pytest,
+ python3-sphinx
+Build-Depends-Indep: python3-sphinx-rtd-theme
+Standards-Version: 4.6.0
+Homepage: https://github.com/aragilar/pytest-mpi
+Rules-Requires-Root: no
+Vcs-Browser: https://salsa.debian.org/python-team/packages/pytest-mpi
+Vcs-Git: https://salsa.debian.org/python-team/packages/pytest-mpi.git
+Testsuite: autopkgtest-pkg-python
+
+Package: python3-pytest-mpi
+Architecture: all
+Depends: ${python3:Depends}, ${misc:Depends}
+Suggests: python-pytest-mpi-doc
+Description: a plugin for pytest testing MPI-related code (Python3)
+ pytest-mpi provides a number of things to assist with using pytest
+ with MPI-using code, specifically:
+  - Displaying of the current MPI configuration (e.g. the MPI version,
+ the number of processes)
+  - Sharing temporary files/folders across the MPI processes
+  - Markers which allow for skipping or xfailing tests based on whether
+ the tests are being run under MPI
+ .
+ This package installs the library for Python 3.
+
+Package: python-pytest-mpi-doc
+Architecture: all
+Multi-Arch: foreign
+Section: doc
+Depends: ${sphinxdoc:Depends}, ${misc:Depends}
+Built-Using: ${sphinxdoc:Built-Using}
+Description: a plugin for pytest testing MPI-related code (common documentation)
+ pytest-mpi provides a number of things to assist with using pytest
+ with MPI-using code, specifically:
+  - Displaying of the current MPI configuration (e.g. the MPI version,
+ the number of processes)
+  - Sharing temporary files/folders across the MPI processes
+  - Markers which allow for skipping or xfailing tests based on whether
+ the tests are being run under MPI
+ .
+ This is the common documentation package.

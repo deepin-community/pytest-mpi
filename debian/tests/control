@@ -1,0 +1,11 @@
+Test-Command: set -e
+ ; TOX_SKIP_ENV='^(?!py[0-9])' tox -vv  --skip-missing-interpreters=true --sitepackages
+Depends: python3-all,
+         python3-pytest-mpi,
+         python3-pytest,
+         python3-pytest-cov,
+         python3-mpi4py,
+         python3-sybil,
+         mpi-default-bin,
+         gcc | c-compiler,
+         tox

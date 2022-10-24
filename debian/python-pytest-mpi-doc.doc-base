@@ -1,0 +1,10 @@
+Document: pytest-mpi
+Title: Debian pytest-mpi Manual
+Author: James Tocknell
+Abstract: This manual describes pytest-mpi,
+ a plugin for pytest testing MPI-related Python code
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-pytest-mpi-doc/html/index.html
+Files: /usr/share/doc/python-pytest-mpi-doc/html/*.html

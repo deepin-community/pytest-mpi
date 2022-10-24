@@ -1,0 +1,14 @@
+Author: Michael R. Crusoe <crusoe@debian.org>
+Description: Allow the tests to oversubscribe the available number of cores
+Forwarded: not-needed
+--- pytest-mpi.orig/tests/conftest.py
++++ pytest-mpi/tests/conftest.py
+@@ -5,7 +5,7 @@
+ import pytest
+ 
+ log = getLogger(__name__)
+-MPI_ARGS = ("mpirun", "-n")
++MPI_ARGS = ("mpirun", "--oversubscribe", "-n")
+ PYTEST_ARGS = (sys.executable, "-mpytest")
+ 
+ 

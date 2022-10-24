@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
+
+export PYBUILD_NAME=pytest-mpi
+
+%:
+	dh $@ --with python3,sphinxdoc --buildsystem=pybuild
+
+override_dh_clean:
+	dh_clean
+	rm -rf src/pytest_mpi.egg-info
+
+override_dh_auto_build-indep:
+	dh_auto_build
+	PYTHONPATH=`pybuild -p $(shell py3versions -dv) --print {build_dir}` http_proxy='127.0.0.1:9' sphinx-build -N -bhtml  docs/ build/html # HTML generator
+	PYTHONPATH=`pybuild -p $(shell py3versions -dv) --print {build_dir}` http_proxy='127.0.0.1:9' sphinx-build -N -bman   docs/ build/man  # Manpage generator
+	mv build/man/pytest-mpi.1 build/man/pytest-mpi.7
+	sed 's/"PYTEST-MPI" "1"/"PYTEST-MPI" "7"/' -i build/man/pytest-mpi.7
+
+override_dh_auto_test:
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+	echo "skipping build-time tests until further notice"
+endif
+
+override_dh_compress:
+	dh_compress -X changelog.html

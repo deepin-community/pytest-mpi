@@ -1,3 +1,41 @@
+pytest-mpi (0.6-5) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+
+ -- Stefano Rivera <stefanor@debian.org>  Fri, 16 Jun 2023 19:48:30 -0400
+
+pytest-mpi (0.6-4) experimental; urgency=medium
+
+  * Team upload.
+  * Run autopkgtest without tox (which broke with tox 4, and isn't currently
+    testing any supported python versions, anyway).
+
+ -- Stefano Rivera <stefanor@debian.org>  Thu, 11 May 2023 19:52:33 -0400
+
+pytest-mpi (0.6-3) unstable; urgency=medium
+
+  * debian patch test_sybil.patch enables tests to run with
+    python3-sybil < 3. cf. scrapy commit #67994d1. Closes: #1008751.
+
+ -- Drew Parsons <dparsons@debian.org>  Sat, 02 Apr 2022 10:34:48 +0200
+
+pytest-mpi (0.6-2) unstable; urgency=medium
+
+  * upload 0.6 to unstable
+
+ -- Drew Parsons <dparsons@debian.org>  Thu, 17 Mar 2022 01:20:05 +0100
+
+pytest-mpi (0.6-1) experimental; urgency=medium
+
+  * New upstream release.
+  * build docs after dh_auto_build, not by overriding it
+  * update debian/tests
+    - versioned Depends: python3-sybil (>= 3.0.0~)
+    - Restrictions: allow-stderr to ignore deprecation warnings
+
+ -- Drew Parsons <dparsons@debian.org>  Tue, 01 Feb 2022 14:19:37 +0100
+
 pytest-mpi (0.5-6) unstable; urgency=medium
 
   * Team upload.

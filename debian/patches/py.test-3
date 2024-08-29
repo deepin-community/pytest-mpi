@@ -3,18 +3,22 @@ Author: Michael R. Crusoe <crusoe@debian.org>
 Forwarded: not-needed
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
---- pytest-mpi.orig/tox.ini
-+++ pytest-mpi/tox.ini
-@@ -7,7 +7,7 @@
- envlist = py{35,36,37,38,39}-{mpi,}-{oldpt,},flake8,pylint,docs,check-manifest,checkreadme
+Index: pytest-mpi/tox.ini
+===================================================================
+--- pytest-mpi.orig/tox.ini	2022-02-01 14:04:35.909013227 +0100
++++ pytest-mpi/tox.ini	2022-02-01 14:04:47.293095939 +0100
+@@ -8,8 +8,8 @@
  
  [testenv]
--commands = py.test -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
-+commands = py.test-3 -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
+ commands =
+-    oldpt: py.test -p pytester --ignore=docs --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
+-    !oldpt: py.test -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
++    oldpt: py.test-3 -p pytester --ignore=docs --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
++    !oldpt: py.test-3 -p pytester --cov={envsitepackagesdir}/pytest_mpi --runpytest=subprocess {posargs}
  deps =
      pytest
      pytest-cov
-@@ -26,6 +26,7 @@
+@@ -31,6 +31,7 @@
      docs: {env:TOXPYTHON:python3}
      check-manifest: {env:TOXPYTHON:python3}
      checkreadme: {env:TOXPYTHON:python3}
